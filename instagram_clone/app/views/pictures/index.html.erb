@@ -36,6 +36,9 @@
   margin: 0 auto;
   border: 3px solid grey;
 }
+#pic-link {
+  font-family: 'Pacifico', cursive;
+}
 </style>
 
 </head>
@@ -65,7 +68,11 @@
                 <h3> <%= picture.name %> </h3>
                 <h6> <%= picture.comments %> </h6>
                 <%= link_to picture_likes_path(picture), class: "likes-link" do %>
-                  <div id="pic-link", class="glyphicon glyphicon-ok">Like</div>
+                  <div class="glyphicon glyphicon-ok">
+                      <span id="pic-link">
+                        Like
+                      </span>
+                  </div>
                   <% end %>
                 <span class="likes_count"> <%= picture.likes.count %> </span>
                 <%= 'like'.pluralize(picture.likes.count) %>
