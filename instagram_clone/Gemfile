@@ -6,6 +6,8 @@ group :test do
   gem 'database_cleaner'
 end
 
+gem 'heroku/ruby'
+
 gem 'paperclip'
 gem 'aws-sdk'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
