@@ -34,7 +34,7 @@
 #image-wrap {
   width: 70%;
   margin: 0 auto;
-  height: 100px;
+  height: 140px;
 }
 #pic-link {
   font-family: 'Pacifico', cursive;
@@ -62,7 +62,7 @@
         <% if @pictures.any? %>
           <% @pictures.each do |picture| %>
 
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
               <div id="image-wrap">
                 <%= image_tag picture.image.url(:thumb) %>
               </div><br/>
@@ -78,7 +78,32 @@
                   <% end %>
                 <span class="likes_count"> <%= picture.likes.count %> </span>
                 <%= 'like'.pluralize(picture.likes.count) %><br/>
-                <%= link_to "Delete this picture", picture_path(picture), method: :delete %>
+                <%= link_to "Delete this picture", picture_path(picture), method: :delete %><br/>
+                <h4>Comments on <%= picture.name %></h4>
+                <%= link_to "Comment on #{picture.name}", new_picture_review_path(picture) %>
+
+
+                <% if picture.reviews.any? %>
+                  <ul>
+                    <% picture.reviews.each do |review| %>
+                      <li>
+                        <%= review.thoughts %><br/>
+                        <%= link_to "Delete this comment", picture_review_path(picture, review), method: :delete %>
+                      </li>
+                    <% end %>
+                  </ul>
+                <% else %>
+                  <p>No comments.</p>
+                <% end %>
+
+
+
+
+
+
+
+
+
               </div>
 
             </div>

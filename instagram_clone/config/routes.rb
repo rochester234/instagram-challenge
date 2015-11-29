@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :pictures do
     resources :likes
-    resources :comments
+    resources :reviews
   end
 
   root to: "pictures#index"
