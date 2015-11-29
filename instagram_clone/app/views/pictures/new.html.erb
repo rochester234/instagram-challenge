@@ -44,7 +44,7 @@
         <%= form_for @picture, html: {multipart: true} do |f| %>
           <%= f.label :name %>
           <%= f.text_field :name, class: 'form-control'%>
-          <%= f.label :comments %>
+          <%= f.label 'Description' %>
           <%= f.text_field :comments, class: 'form-control' %>
           <%= f.label :image, value: 'Select an image to upload:' %>
           <%= f.file_field :image, class: 'btn btn-primary btn-lg' %><br/>

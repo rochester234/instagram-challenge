@@ -7,10 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <!-- <div class="alert alert-success"><%= notice %></div> -->
-  <% if flash[:notice] -%>
-  <div class = "alert alert-success"><%= flash[:notice] %></div>
-<% end %>
+<div class="container">
+  <% if user_signed_in? %>
+    <div class = "btn btn-warning btn-md"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></div>
+  <% else %>
+    <div class = "btn btn-warning btn-md"><%= link_to "Sign in", new_user_session_path %></div>
+    <div class = "btn btn-warning btn-md"><%= link_to "Sign up", new_user_registration_path %></div>
+    <% end %>
+
+    <% if flash[:notice] -%>
+      <div class = "alert alert-success"><%= flash[:notice] %></div>
+      <% end %>
+  </div>
+
+
+
 <%= yield %>
 
 </body>

@@ -6,7 +6,7 @@ group :test do
   # gem 'poltergeist'
   # gem 'database_cleaner'
 end
-
+gem 'devise'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
