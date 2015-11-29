@@ -9,11 +9,11 @@
 <meta name="viewport" content="width = device-width, initial-scale = 1">
 <title>Bootstrap Tutorial</title>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <style>
   .jumbotron{
       background-color:#2E2D88;
-      color:black;
+      color:grey;
   }
   /* Adds borders for tabs */
   .tab-content {
@@ -24,6 +24,9 @@
   }
   .nav-tabs {
       margin-bottom: 0;
+  }
+  .page-header {
+    font-family: 'Pacifico', cursive;
   }
 </style>
 
@@ -40,11 +43,12 @@
       <p>
         <%= form_for @picture, html: {multipart: true} do |f| %>
           <%= f.label :name %>
-          <%= f.text_field :name %>
+          <%= f.text_field :name, class: 'form-control'%>
           <%= f.label :comments %>
-          <%= f.text_field :comments %>
-          <%= f.file_field :image %>
-          <%= f.submit value="Add picture"%>
+          <%= f.text_field :comments, class: 'form-control' %>
+          <%= f.label :image, value: 'Select an image to upload:' %>
+          <%= f.file_field :image, class: 'btn btn-primary btn-lg' %><br/>
+          <%= f.submit class: 'btn btn-warning btn-lg', value: 'Add picture' %>
         <% end %>
       </p>
 
