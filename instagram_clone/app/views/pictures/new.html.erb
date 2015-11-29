@@ -38,11 +38,12 @@
     <div class="jumbotron">
 
       <p>
-        <%= form_for @picture do |f| %>
+        <%= form_for @picture, html: {multipart: true} do |f| %>
           <%= f.label :name %>
           <%= f.text_field :name %>
           <%= f.label :comments %>
           <%= f.text_field :comments %>
+          <%= f.file_field :image %>
           <%= f.submit value="Add picture"%>
         <% end %>
       </p>
