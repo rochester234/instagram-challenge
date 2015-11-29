@@ -44,7 +44,10 @@
     <p>
         <% if @pictures.any? %>
           <% @pictures.each do |picture| %>
-            <h2> <%= picture.name %> </h2>
+            <h3> <%= picture.name %> </h3><br/>
+            <%= link_to "Like", picture_likes_path(picture), class: 'likes-link' %>
+            <span class="likes_count"> <%= picture.likes.count %> </span>
+            <%= 'like'.pluralize(picture.likes.count) %>
           <% end %>
         <% else %>
           No pictures yet
